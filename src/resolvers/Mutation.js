@@ -79,12 +79,8 @@ const mutations = {
     return user;
   },
   async signout(parent, args, ctx, info) {
-    const userId = ctx.request.userId;
-    if (!userId) {
-      throw new Error("Not logged in!");
-    }
     ctx.response.clearCookie("token");
-    return userId;
+    return { message: "Goodbye!" };
   },
 };
 
